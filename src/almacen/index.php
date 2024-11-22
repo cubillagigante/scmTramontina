@@ -1,4 +1,4 @@
-<div id="pagina" data-view="scm.V_Almacen" data-campo="nombre" data-id="ID" class="w-3/4 text-white m-auto ">
+<div id="pagina" data-view="scm.V_Almacen" data-campo="nombre" data-id="ID" data-edit="true" data-delete="true" class="w-3/4 text-white m-auto ">
     <div id="modalD"></div>
     <section class="flex pt-10 pb-6 gap-x-2 justify-between items-center ">
         <div >

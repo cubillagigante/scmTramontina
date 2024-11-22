@@ -27,7 +27,8 @@
                 button.addEventListener('click', function() {
                     // Cargar la página PHP correspondiente mediante AJAX
                     const page = button.getAttribute('data-page');
-                    loadPage(page);
+                    const table2 = button.getAttribute('data-table2');
+                    loadPage(page, table2);
                     
                     // Resaltar el botón activo
                     setActiveButton(button);
@@ -35,7 +36,7 @@
             });
 
             // Función para cargar la página mediante AJAX
-            function loadPage(page) {
+            function loadPage(page, table2) {
                 fetch(page)  // Realiza una solicitud GET a la página PHP
                     .then(response => {
                         if (!response.ok) {
@@ -46,7 +47,16 @@
                     .then(data => {
                         // Insertar el contenido cargado en el contenedor #content
                         document.getElementById('content').innerHTML = data;
-                        consultarDatos('');
+                        if (table2 == 'true') {
+                            consultarDatos('', 'pagina2', 'resultados2');
+                            
+                            
+                        }
+                        currentPage = 1; 
+                        consultarDatos('', 'pagina', 'resultados');
+                     
+
+                        
                     })
                     .catch(error => {
                         console.error('Hubo un problema con la solicitud AJAX:', error);

@@ -17,7 +17,7 @@ function insertarDatos(tabla, camposValores) {
         if (data.status === "success") {
            
             loadPage('modalOk');  //se muestra un mensaje de correcto
-            consultarDatos(''); //se reinicia la tabla
+            consultarDatos('', 'pagina', 'resultados'); //se reinicia la tabla
             
             setTimeout(function() {
                 eliminarDiv('modalOk');
@@ -75,3 +75,8 @@ function eliminarDiv(divname) {
         console.log("El div no existe.");
     }
 }
+
+
+
+
+

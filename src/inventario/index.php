@@ -1,4 +1,4 @@
-<div id="pagina" data-view="V_Inventario" data-campo="DESCRIPCION" data-id="ID" class="w-3/4 text-white m-auto ">
+<div id="pagina" data-view="scm.V_Inventario" data-campo="DESCRIPCION" data-id="ID" data-edit="true" data-delete="true" class="w-3/4 text-white m-auto ">
     <div id="modalD"></div>
     <section class="flex pt-10 pb-6 gap-x-2 justify-between items-center ">
         <div >
@@ -17,6 +17,9 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Producto
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Categoria
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Almacen
