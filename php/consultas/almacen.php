@@ -2,13 +2,16 @@
 
 require '../conexion.php';
 // Obtener los parámetros de la solicitud AJAX
+$id = isset($_POST['id']) ? $_POST['id'] : '';
+$campo = isset($_POST['campo']) ? $_POST['campo'] : '';
+$view = isset($_POST['view']) ? $_POST['view'] : '';
 $search = isset($_POST['search']) ? $_POST['search'] : '';
 $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
 $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 5;
 $offset = ($page - 1) * $limit;  // Calcular el desplazamiento para la paginación
 
 // Hacer la consulta SQL con limitación de resultados
-$sql = "SELECT almacenId, nombre, ubicacion FROM scm.Almacen WHERE nombre LIKE ? ORDER BY almacenId DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+$sql = "SELECT * FROM $view WHERE $campo LIKE ? ORDER BY $id DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 $params = array("%$search%", $offset, $limit);
 $stmt = sqlsrv_query($conexion, $sql, $params);
 
@@ -24,7 +27,7 @@ while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 }
 
 // Obtener el número total de registros (sin paginación)
-$sqlTotal = "SELECT COUNT(*) AS total FROM scm.Almacen WHERE nombre LIKE ?";
+$sqlTotal = "SELECT COUNT(*) AS total FROM $view WHERE $campo LIKE ?";
 $stmtTotal = sqlsrv_query($conexion, $sqlTotal, array("%$search%"));
 $rowTotal = sqlsrv_fetch_array($stmtTotal, SQLSRV_FETCH_ASSOC);
 $totalRecords = $rowTotal['total'];

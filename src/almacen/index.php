@@ -1,12 +1,4 @@
-<?php 
-require '../../php/conexion.php';
-
-
-$sqlcanti = "SELECT * FROM SCM.ALMACEN";
-$resultadocanti = sqlsrv_query($conexion, $sqlcanti);
-
-?>
-<div class="w-3/4 text-white m-auto ">
+<div id="pagina" data-view="scm.V_Almacen" data-campo="nombre" data-id="ID" class="w-3/4 text-white m-auto ">
     <div id="modalD"></div>
     <section class="flex pt-10 pb-6 gap-x-2 justify-between items-center ">
         <div >

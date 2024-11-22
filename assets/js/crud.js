@@ -15,10 +15,10 @@ function insertarDatos(tabla, camposValores) {
         
         // Limpiar el formulario si la inserción fue exitosa
         if (data.status === "success") {
-            console.log('correctooooo');
-            loadPage('modalOk');  
-            consultarDatos('');
-            console.log('dvdsv');
+           
+            loadPage('modalOk');  //se muestra un mensaje de correcto
+            consultarDatos(''); //se reinicia la tabla
+            
             setTimeout(function() {
                 eliminarDiv('modalOk');
             }, 1000); 

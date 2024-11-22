@@ -67,7 +67,7 @@
                 activeButton.classList.add('text-white');
             }
             // Cargar la página inicial por defecto
-            document.getElementById("btnalmacen").click();
+            document.getElementById("btninventario").click();
             //loadPage('../almacen/index.php');
            
         });
