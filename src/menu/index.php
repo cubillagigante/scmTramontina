@@ -1,6 +1,6 @@
 <nav class="bg-cyan-600 h-screen w-1/6 ">
     <section class="p-5 text-center">
-        <div>logo</div>
+        <span class="font-semibold text-white">SCM TRAMONTINA</span>
     </section>
     <section class="bg-cyan-600">
         <article id="btnestadistica" data-page="inicio/"

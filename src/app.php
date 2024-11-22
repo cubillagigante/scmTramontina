@@ -14,8 +14,11 @@
         <div id="content" class="w-full relative"></div>
     </div>
     <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/paginacion.js"></script>
+    <script src="../assets/js/crud.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            
             // Obtener todos los botones del menú
             const menuButtons = document.querySelectorAll('.menu-item');
             console.log(menuButtons);
@@ -43,6 +46,7 @@
                     .then(data => {
                         // Insertar el contenido cargado en el contenedor #content
                         document.getElementById('content').innerHTML = data;
+                        consultarDatos('');
                     })
                     .catch(error => {
                         console.error('Hubo un problema con la solicitud AJAX:', error);
@@ -65,6 +69,7 @@
             // Cargar la página inicial por defecto
             document.getElementById("btnalmacen").click();
             //loadPage('../almacen/index.php');
+           
         });
     </script>
 </body>

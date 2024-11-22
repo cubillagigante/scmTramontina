@@ -11,7 +11,7 @@ $resultadocanti = sqlsrv_query($conexion, $sqlcanti);
     <section class="flex pt-10 pb-6 gap-x-2 justify-between items-center ">
         <div >
             <label for="InputBuscador" class="font-semibold text-black pr-3">Buscar Almacén: </label>
-            <input id="InputBuscador" placeholder="Ej: almacen 1" type="text" class="p-1 px-5 text-black  border border-gray-400" />
+            <input id="InputBuscador" onkeyup="consultarDatos(this.value)" placeholder="Ej: almacen 1" type="text" class="p-1 px-5 text-black  border border-gray-400" />
         </div>
         <Button onclick="modaladd(this)" data-modal="t-addAlmacen" class="bg-green-600 hover:bg-green-500 px-10 py-1 rounded-md"> <i class="ri-add-circle-fill text-xl"></i></Button>
     </section>
@@ -35,32 +35,12 @@ $resultadocanti = sqlsrv_query($conexion, $sqlcanti);
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php while($fila = sqlsrv_fetch_array($resultadocanti, SQLSRV_FETCH_ASSOC)) { ?>
-                    <tr
-                        class="bg-white border-b hover:bg-gray-50 text-center">
-                        
-                        <th scope="row" class="px-6 py-4 font-medium  ">
-                            <?php echo $fila['almacenId']; ?>
-                        </th>
-                        <td class="px-6 py-4">
-                            <?php echo $fila['nombre']; ?>
-                        </td>
-                        <td class="px-6 py-4">
-                            <?php echo $fila['ubicacion']; ?>
-                        </td>
-                        
-                        <td class="flex gap-x-4s items-center  py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="ri-pencil-fill text-xl"></i></a>
-                            <a href="#"
-                                class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"><i class="ri-delete-bin-fill text-xl"></i></a>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                    
+                <tbody id="resultados">
                 </tbody>
             </table>
+            
         </div>
+        <div id="paginacion" class=" flex justify-start items-center gap-x-2 mt-4"></div>
     </section>
 </div>
 
